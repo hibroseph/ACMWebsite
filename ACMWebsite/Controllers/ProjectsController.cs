@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ACMWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ACMWebsite.Controllers
 {
@@ -76,6 +77,7 @@ namespace ACMWebsite.Controllers
         }
 
         // GET: Projects/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -96,6 +98,7 @@ namespace ACMWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ProjectName,Creator,PostedDate,Description")] Project project)
         {
             if (id != project.Id)
@@ -127,6 +130,7 @@ namespace ACMWebsite.Controllers
         }
 
         // GET: Projects/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -147,6 +151,7 @@ namespace ACMWebsite.Controllers
         // POST: Projects/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var project = await _context.Project.FindAsync(id);

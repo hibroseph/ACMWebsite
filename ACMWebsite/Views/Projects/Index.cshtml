@@ -4,57 +4,89 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<style>
+    .card {
+        margin: 20px;
+    }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    .mod-actions {
+        float: right;
+    }
+</style>
+<h1>Projects</h1>
+<button type="button" asp-action="Create" class="btn btn-primary">Add Your Project</button>
 
-<form asp-controller="Projects" asp-action="Index" method="get">
-    <p>
-    Title: <input type="text" name="SearchString">
-    <input type="submit" value="Filter">
-    </p>
-</form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Creator)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PostedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Creator)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@foreach (var item in Model)
+{
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.ProjectName)</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => item.Creator)</h6>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Description)</p>
+
+            <a class="card-link" asp-action="Details" asp-route-id="@item.Id">Details</a>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a class="card-link mod-actions" asp-action="Delete" asp-route-id="@item.Id">Delete </a>
+                <a class="card-link mod-actions" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+            }
+        </div>
+    </div>
 }
-    </tbody>
-</table>
+
+@*
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    <form asp-controller="Projects" asp-action="Index" method="get">
+        <p>
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter">
+        </p>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Creator)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PostedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Creator)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+*@

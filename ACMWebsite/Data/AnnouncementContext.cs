@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using ACMWebsite.Models;
 
 namespace ACMWebsite.Models
 {
-    public class ACMWebsiteContext : DbContext
+    public class AnnouncementContext : DbContext
     {
-        public ACMWebsiteContext (DbContextOptions<ACMWebsiteContext> options)
+        public AnnouncementContext (DbContextOptions<AnnouncementContext> options)
             : base(options)
         {
         }
 
-        public DbSet<ACMWebsite.Models.Project> Project { get; set; }
-        
+        public DbSet<ACMWebsite.Models.Announcement> Announcement { get; set; }
     }
 }

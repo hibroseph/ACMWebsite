@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ACMWebsite.Models.Announcement>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h1>Announcements</h1>
+
+<style>
+    .announcement-title {
+        color: black;
+        font-weight: bolder;
+        font-size: 30px;
+\
+    }
+
+    .announcement-body {
+        color: black;
+        padding:10px;
+    }
+
+
+    .announcement {
+        background-color: #3399ff;
+        border-radius: 5px;
+        width: 800px;
+        padding:10px;
+        margin: 20px;
+    }
+</style>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="announcement">
+        <p class="announcement-title"> @Html.DisplayFor(modelItem => item.Title)</p>
+        <p class="announcement-body">@Html.DisplayFor(modelItem => item.Body)</p>
+    </div>
+}
+
+
+@*
+    @foreach (var item in Model)
+    {
+
+
+
+    }
+*@
+
+
+
+@*
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Body)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatePosted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Author)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Body)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePosted)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+*@

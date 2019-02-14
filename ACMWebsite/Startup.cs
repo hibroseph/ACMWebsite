@@ -47,6 +47,9 @@ namespace ACMWebsite
 
             services.AddDbContext<ACMWebsiteContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ACMWebsiteContext")));
+
+            services.AddDbContext<AnnouncementContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AnnouncementContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,7 +77,7 @@ namespace ACMWebsite
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Announcements}/{action=Index}/{id?}");
             });
         }
     }

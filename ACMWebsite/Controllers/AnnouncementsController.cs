@@ -24,6 +24,11 @@ namespace ACMWebsite.Controllers
             return View(await _context.Announcement.ToListAsync());
         }
 
+        public async Task<IActionResult> Manage()
+        {
+            return View(await _context.Announcement.ToListAsync());
+        }
+
         // GET: Announcements/Details/5
         public async Task<IActionResult> Details(int? id)
         {

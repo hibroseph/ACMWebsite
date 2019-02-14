@@ -15,21 +15,11 @@ namespace ACMWebsite.Controllers
             return View();
         }
 
-        public IActionResult HelloWorld()
+        public IActionResult Calendar()
         {
             return View();
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        public IActionResult Help()
-        {
-            return View();
-        }
-
+        
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

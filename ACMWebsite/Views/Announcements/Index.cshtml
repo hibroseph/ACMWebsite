@@ -13,12 +13,11 @@
         color: black;
         font-weight: bolder;
         font-size: 30px;
-
     }
 
     .announcement-body {
         color: black;
-        padding:10px;
+        padding: 10px;
     }
 
 
@@ -26,8 +25,16 @@
         background-color: #e3e3e3;
         border-radius: 5px;
         width: 800px;
-        padding:10px;
+        padding: 10px;
         margin: 20px;
+    }
+
+    .mod-actions {
+    }
+
+    .mod-item { 
+        margin-left:10px;
+        margin-right:10px;
     }
 </style>
 
@@ -38,6 +45,13 @@
     <div class="announcement">
         <p class="announcement-title"> @Html.DisplayFor(modelItem => item.Title)</p>
         <p class="announcement-body">@Html.DisplayFor(modelItem => item.Body)</p>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="mod-actions">
+                <a class="mod-item" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                <a class="mod-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        }
     </div>
 }
 

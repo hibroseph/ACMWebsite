@@ -7,6 +7,10 @@
 
 
 <h1>Announcements</h1>
+@if (User.Identity.IsAuthenticated)
+{
+    <button type="button" class="btn btn-primary">Add an Announcement</button>
+}
 
 <style>
     .announcement-title {

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ACMWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ACMWebsite.Controllers
 {
@@ -24,6 +25,7 @@ namespace ACMWebsite.Controllers
             return View(await _context.Announcement.ToListAsync());
         }
 
+        [Authorize]
         public async Task<IActionResult> Manage()
         {
             return View(await _context.Announcement.ToListAsync());

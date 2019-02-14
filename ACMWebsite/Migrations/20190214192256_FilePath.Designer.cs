@@ -4,14 +4,16 @@ using ACMWebsite.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ACMWebsite.Migrations
 {
     [DbContext(typeof(ACMWebsiteContext))]
-    partial class ACMWebsiteContextModelSnapshot : ModelSnapshot
+    [Migration("20190214192256_FilePath")]
+    partial class FilePath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

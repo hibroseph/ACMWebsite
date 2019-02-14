@@ -4,14 +4,16 @@ using ACMWebsite.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace ACMWebsite.Migrations
+namespace ACMWebsite.Migrations.Announcement
 {
-    [DbContext(typeof(ACMWebsiteContext))]
-    partial class ACMWebsiteContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AnnouncementContext))]
+    [Migration("20190214191528_FilePath")]
+    partial class FilePath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,25 +21,23 @@ namespace ACMWebsite.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ACMWebsite.Models.Project", b =>
+            modelBuilder.Entity("ACMWebsite.Models.Announcement", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Creator");
+                    b.Property<string>("Author");
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Body");
 
-                    b.Property<string>("FilePath");
+                    b.Property<DateTime>("DatePosted");
 
-                    b.Property<DateTime>("PostedDate");
-
-                    b.Property<string>("ProjectName");
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Project");
+                    b.ToTable("Announcement");
                 });
 #pragma warning restore 612, 618
         }

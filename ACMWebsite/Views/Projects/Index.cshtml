@@ -14,7 +14,7 @@
     }
 </style>
 <h1>Projects</h1>
-<button type="button" asp-action="Create" class="btn btn-primary">Add Your Project</button>
+<button type="button" asp-action="Create" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Projects")'">Add Your Project</button>
 
 @foreach (var item in Model)
 {

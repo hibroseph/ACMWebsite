@@ -65,7 +65,7 @@ namespace ACMWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ProjectName,Creator,PostedDate,Description")] Project project)
+        public async Task<IActionResult> Create([Bind("Id,ProjectName,Creator,PostedDate,Description,FilePath")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace ACMWebsite.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ProjectName,Creator,PostedDate,Description")] Project project)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ProjectName,Creator,PostedDate,Description,FilePath")] Project project)
         {
             if (id != project.Id)
             {

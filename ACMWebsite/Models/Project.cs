@@ -17,6 +17,9 @@ namespace ACMWebsite.Models
         [DataType(DataType.Date)]
         public DateTime PostedDate { get; set; }
         public string Description { get; set; }
+
+        [Display(Name ="Upload a Photo")]
+        public string FilePath { get; set; }
         
     }
 }

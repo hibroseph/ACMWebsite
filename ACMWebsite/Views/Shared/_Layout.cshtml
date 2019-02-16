@@ -46,13 +46,6 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Leadership">Leadership</a>
                         </li>
 
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Announcements" asp-action="Manage">Manage</a>
-                            </li>
-                        }
-
                     </ul>
                 </div>
             </div>

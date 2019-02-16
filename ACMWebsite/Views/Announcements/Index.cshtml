@@ -9,7 +9,9 @@
 <h1>Announcements</h1>
 @if (User.Identity.IsAuthenticated)
 {
-    <button type="button" class="btn btn-primary">Add an Announcement</button>
+    <!--<button type="button" class="btn btn-primary">Add an Announcement</button>-->
+    <!--<input type="button" class="btn btn-primary" value="Create" onclick="location.href='@Url.Action("Create", "Announcement")'">-->
+    <button  class="btn btn-primary" onclick="location.href='@Url.Action("Create", "Announcements")'">Create Announcement</button>
 }
 
 <style>
@@ -36,9 +38,9 @@
     .mod-actions {
     }
 
-    .mod-item { 
-        margin-left:10px;
-        margin-right:10px;
+    .mod-item {
+        margin-left: 10px;
+        margin-right: 10px;
     }
 </style>
 
